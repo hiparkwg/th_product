@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="product">
+   <select id="list" parameterType="Object" resultType="ProductVo">
+      select * from product
+      <where>
+         <choose>
+            <when test="_parameter instanceof String">
+               (id=#{_parameter}
+               or codeName like '%'  #{_parameter}  '%'
+               or nal like '%'  #{_parameter}  '%')
+            </when>
+            <when test="_parameter instanceof Integer">
+               (id=#{_parameter}
+               or sno like '%'  #{_parameter}  '%')
+            </when>
+            <when test="_parameter instanceof Long">
+               (id=#{_parameter}
+               or ea like '%'  #{_parameter}  '%'
+               or price like '%'  #{_parameter}  '%'
+               or amt like '%'  #{_parameter}  '%')
+            </when>
+            <otherwise>
+               1=2
+            </otherwise>
+         </choose>
+      </where>
+   </select>
+</mapper>
