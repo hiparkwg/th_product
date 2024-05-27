@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="js/csyProductUpdate.js"></script>
+    <title>Product Update Page</title>
+
+</head>
+<body>
+    <div>
+        <h1>판매 정보 수정</h1>
+        <!-- 수정 대상 테이블이 product이라서 일단 product modify -->
+        <form name="csyFrmProductModify" method="post">
+            <!-- TODO: SELECT 적용 전 기존 값 없이 실행되는 코드 -->
+            <!-- input type을 hidden으로 했을 때, int 0이 아니라, String ""으로 전송돼서 에러남 -->
+            <input type="text" name="sno" value="1" style="display: none;">
+            <label>코드<input type="text" name="code"></label><br/>
+            <label>코드명<input type="text" name="codeName"></label><br/>
+            <label>판매일<input type="text" name="nal" value="2024-01-01 12:00:00"></label><br/>
+            <label>수량<input type="text" name="ea"></label><br/>
+            <label>단가<input type="text" name="price"></label><br/>
+            <label>금액<input type="text" name="amt"></label><br/>
+
+            <!-- TODO: SELECT 적용 후 기존 값들 받아올 수 있는 코드 -->
+            <!-- 이하 sno, code, codeName은 SELECT로만 변경되도록 일단 hidden / readonly -->
+            <!--
+            <input type="text" name="sno" style="display: none;" th:value="${vo.sno}" >
+            <label>코드<input type="text" readonly name="code" th:value="${vo.code}"></label><br/>
+            <label>코드명<input type="text" readonly name="codeName" th:value="${vo.codeName}"></label><br/>
+            <label>판매일<input type="text" name="nal" th:value="${vo.nal}"></label><br/>
+            <label>수량<input type="text" name="ea" th:value="${vo.ea}"></label><br/>
+            <label>단가<input type="text" name="price" th:value="${vo.price}"></label><br/>
+            <label>금액<input type="text" name="amt" th:value="${vo.amt}"></label><br/>
+            -->
+            <button type="button" class="csyBtnModify">수정</button>
+        </form>
+    </div>
+</body>
+</html>
