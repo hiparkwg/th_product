@@ -3,6 +3,7 @@ $(function(){
 });
 
 let view = (sno)=> {
+  
     $.ajax({
         url:"/krh_view",
         type: "GET",
