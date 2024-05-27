@@ -52,3 +52,7 @@
     border:1px solid #ccc;
     padding:20px;
 }
+#product .left span{
+    border: 1px solid #b5e1ff;
+    width: 350px;
+}

@@ -6,8 +6,9 @@ import lombok.Data;
 public class ProductVo {
     int sno;
     String code;
+    String codeName;
     String nal;
     long ea;
     long price;
-    long mat;
+    long amt;
 }
