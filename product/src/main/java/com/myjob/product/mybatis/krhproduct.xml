@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper      
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"      
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="krhproduct">
+    <select id="view" parameterType="Integer" resultType="ProductVo">
+        select sno, code, codeName, nal, ea, price, amt from product
+        where sno=#{_parameter}
+    </select>
+    
+    <delete id="delete_product" parameterType="Integer">
+        delete from product
+        where sno=#{_parameter}
+    </delete>
+</mapper>

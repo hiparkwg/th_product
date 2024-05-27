@@ -52,3 +52,14 @@
     border:1px solid #ccc;
     padding:20px;
 }
+#product .left li {
+    list-style: none;
+    line-height: 2.0;
+}
+#product .left h3{
+    color:#719ECE;
+    text-align: center;
+}
+#product .left span{
+    border: 1px solid #719ECE;
+}
