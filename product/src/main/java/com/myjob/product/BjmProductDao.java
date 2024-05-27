@@ -14,8 +14,6 @@ public class BjmProductDao {
         session = new MyFactory().getSession();
         boolean b = false;
         int cnt = session.insert("bjm_product.register", vo);
-        // System.out.println("-------------");
-        // System.out.println(vo.getCode());
         if(cnt > 0){
             b=true;
             session.commit();
