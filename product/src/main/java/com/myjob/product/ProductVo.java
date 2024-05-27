@@ -9,5 +9,5 @@ public class ProductVo {
     String nal;
     long ea;
     long price;
-    long mat;
+    long amt;
 }
