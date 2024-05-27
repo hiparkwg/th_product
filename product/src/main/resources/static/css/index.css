@@ -1,0 +1,73 @@
+*{
+    box-sizing:border-box;
+}
+body{
+    background-color: #f7f4f4;
+    color:#3c3232;
+}
+#product{
+    width: 900px;
+    margin: 40px auto;
+}
+#product>h1{
+    text-align: center;
+}
+#product .nav{
+    height:44px;
+    background-color: #aaa;
+    padding:5px;
+    margin-bottom:3px;
+    line-height: 34px;
+    text-align: right;
+}
+#product .nav *{
+    height:24px;
+    vertical-align: middle;
+}
+#product .nav button{
+    position: relative;
+    border:none;
+    background-color: aqua;
+    border-radius:10px;
+    
+    margin: 5px;
+    width:100px;
+}
+#product .left{
+    width:350px;
+    padding:10px;
+    background-color: #ddd;
+}
+#product .right{
+    background-color: #ccc;
+    flex-grow: 1;
+    padding:20px;
+    overflow-y: scroll;
+}
+#product .center{
+    height: 700px;
+    display: flex;
+}
+/* -------------------------list */
+.list .frm{
+    margin-bottom: 20px;
+    display: flex;
+    padding:7px;
+    background-color: #fff;
+}
+.list .frm *{
+    height:30px;
+    font-size:18px;
+    vertical-align: middle;
+    border:0;
+}
+.list .frm .findStr{
+    margin-right:2px;
+    border:0;
+    flex-grow: 0.5;
+    padding:0 10px;
+    background-color: #eee;
+}
+.list span{
+    width: 200px;
+}

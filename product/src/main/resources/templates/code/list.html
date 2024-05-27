@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list</title>
+</head>
+<body>
+    <div>
+        <div class="change" >
+            <div class="list">
+                <form name="frm" class="frm" method="post">
+                    <button type="button" class="btnRegister">등록</button>
+                    <input type="text" name="findStr" class="findStr">
+                    <button type="button" class="btnSearch">검색</button>
+                </form>
+                <div class="title">
+                    <span class="sno">번호</span>
+                    <span class="code">코드</span>
+                    <span class="codeName">코드명</span>
+                    
+                </div>
+                <div class="items">
+                    <div class="item" th:each="c : ${list}" th:onClick="choiView([[${c.code}]])">
+                       <span class="num" th:text="${cStat.count}"></span>
+                        <span class="code">[[${c.code}]]</span>
+                        <span class="codeName">[[${c.codeName}]]</span>
+                       
+                    </div>            
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
