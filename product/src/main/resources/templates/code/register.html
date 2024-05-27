@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Register</title>
+</head>
+<body>
+    <div>
+        <div class="bjmRegister">
+            <form name="bjmFrmRegister" method="post">
+                <label>코드</label>
+                <input type="text" name="code" th:value="${session.code}" size="8"><br>
+                <label>코드명</label>
+                <input type="text" name="codeName" th:value="${session.codeName}" size="12"><br>
+            </form>
+            <button type="button" class="bjmBtnRegisterR">등록</button>
+            <button type="button" class="bjmBtnCancel">취소</button>
+        </div>
+    </div>
+</body>
+</html>
