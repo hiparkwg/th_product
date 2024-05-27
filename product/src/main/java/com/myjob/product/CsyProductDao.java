@@ -1,7 +1,6 @@
 package com.myjob.product;
 
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.myjob.product.csyMybatis.MyFactory;
@@ -13,7 +12,7 @@ public class CsyProductDao {
     public boolean update(ProductVo vo){
         boolean isDaoSuccess = false;
         session = new MyFactory().getSession();
-        int cnt = session.update("product.update", vo);
+        int cnt = session.update("csyProduct.update", vo);
         if(cnt>0){
             isDaoSuccess = true;
             session.commit();
