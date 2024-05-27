@@ -20,6 +20,8 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com/myjob/guest/mybatis/product.xml" /> <!--실제 경로-->
+        <mapper resource="com/myjob/product/mybatis/code.xml" />
+        <mapper resource="com/myjob/product/mybatis/product.xml" />
+         <!--실제 경로-->
     </mappers>
 </configuration>

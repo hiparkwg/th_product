@@ -13,7 +13,7 @@ public class MyFactory {
     public MyFactory(){
        try{
         Reader reader = 
-            Resources.getResourceAsReader("com/myjob/guest/mybatis/config.xml");
+            Resources.getResourceAsReader("com/myjob/product/mybatis/config.xml");
         SqlSessionFactory factory = 
             new SqlSessionFactoryBuilder().build(reader);
         session = factory.openSession();    

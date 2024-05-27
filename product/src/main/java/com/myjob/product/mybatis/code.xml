@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="code">
+    <select id="search" parameterType="String" resultType="CodeVo">
+        select * from code
+         where code like '%${_parameter}%'
+        or codeName like '%${_parameter}%'
+    </select>
+
+   <select id="list" parameterType="String" resultType="CodeVo">
+      select * from code
+      where id=#{_parameter}
+      or code like '%{_parameter}%'
+      or codeName like '%{_parameter}%'
+   </select>
+   
+</mapper>
