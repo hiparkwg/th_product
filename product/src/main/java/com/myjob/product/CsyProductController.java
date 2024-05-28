@@ -13,13 +13,7 @@ public class CsyProductController {
     @Autowired
     CsyProductDao dao;
 
-    @RequestMapping(path="/")
-    public ModelAndView index(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("index");
-        return mv;
-    }
-
+  
     @RequestMapping(path="/csyProductUpdate")
     public boolean update(ProductVo vo) {
         System.out.println(vo); 

@@ -14,12 +14,7 @@ public class LsjController {
     @Autowired
     LsjProductDao dao;
 
-    @RequestMapping(path="/")
-    public ModelAndView index(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("index");
-        return mv;
-    }
+
     @RequestMapping(path="/view")
     public ModelAndView view(){
         ModelAndView mv = new ModelAndView();
