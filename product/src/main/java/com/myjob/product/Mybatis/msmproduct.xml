@@ -4,24 +4,11 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="product">
-   <select id="list" parameterType="String" resultType="ProductVo">
+   <select id="search" parameterType="String" resultType="ProductVo">
       select * from product
-      where id=#{_parameter}
-      or codeName like '%{_parameter}%'
-      or nal like '%{_parameter}%'
+      where code=#{_parameter}
+      or codeName like '%${_parameter}%'
+      or nal      like '%${_parameter}%'
    </select>
 
-   <select id="list" parameterType="int" resultType="ProductVo">
-      select * from product
-      where id=#{_parameter}
-      or sno like '%${_parameter}%'
-   </select>
-
-   <select id="list" parameterType="long" resultType="ProductVo">
-      select * from product
-      where id=#{_parameter}
-      or ea like '%${_parameter}%'
-      or price like '%${_parameter}%'
-      or amt like '%${_parameter}%'
-   </select>
 </mapper>

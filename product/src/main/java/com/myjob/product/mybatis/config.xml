@@ -21,5 +21,12 @@
 	</environments>
 	<mappers>
 		<mapper resource="com/myjob/product/mybatis/csyProduct.xml" />
+		<mapper resource="com/myjob/product/mybatis/msmcode.xml" />
+       	<mapper resource="com/myjob/product/mybatis/msmproduct.xml" />
+       	<mapper resource="com/myjob/product/mybatis/lsjproduct.xml" />
+       	<mapper resource="com/myjob/product/mybatis/ojwproduct.xml" />
+       	<mapper resource="com/myjob/product/mybatis/krhproduct.xml" />
+       	<mapper resource="com/myjob/product/mybatis/bjmProduct.xml" />
+
 	</mappers>
 </configuration>

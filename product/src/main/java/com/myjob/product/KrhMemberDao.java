@@ -20,6 +20,7 @@ public class KrhMemberDao {
     }
 
     public String delete(Integer sno){
+        System.out.println("dao sno : " + sno);
         SqlSession session = new MyFactory().getSession();
         int cnt=session.delete("krhproduct.delete_product",sno);
         String msg="";

@@ -10,12 +10,6 @@ public class OjwMemberController {
     @Autowired
     OjwMemberDao dao;
 
-    @RequestMapping(path="/")
-    public ModelAndView index(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("index");
-        return mv;
-    }
 
     @RequestMapping(path="/ojw_view")
     public ModelAndView view(String code){

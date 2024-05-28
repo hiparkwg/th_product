@@ -1,7 +1,3 @@
-$(function(){ //body가 준비되면 실행시키라는 함수
-    // 자동실행
-    list();
-});
 
 let view = (code)=>{
     $.ajax({

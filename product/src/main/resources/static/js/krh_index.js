@@ -1,8 +1,5 @@
-$(function(){
-    list(); //list를 부를거야
-});
 
-let view = (sno)=> {
+let krhView = (sno)=> {
     $.ajax({
         url:"/krh_view",
         type: "GET",
@@ -10,12 +7,12 @@ let view = (sno)=> {
         success : (resp)=>{
             let temp=$(resp).find(".view");
             $('.center .left').html(temp);
-            viewEvent(sno);
+            krhViewEvent(sno);
         }
     })
 }
 
-function viewEvent(sno){
+function krhViewEvent(sno){
     let btnDelete = document.querySelector(".btnDelete");
 
     btnDelete.addEventListener('click',()=>{
@@ -23,7 +20,7 @@ function viewEvent(sno){
         if(!yn) return;
 
         $.ajax({
-            url:"/deleteR",
+            url:"/krhDeleteR",
             type:"GET",
             data:{"sno":sno},
             success:(resp)=>{

@@ -19,14 +19,8 @@ public class KrhMemberController {
         return mv;
     }
 
-    @RequestMapping(path="/krh_delete")
-    public ModelAndView delete(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("delete");
-        return mv;
-    }
 
-    @RequestMapping(path="/krh_deleteR")
+    @RequestMapping(path="/krhDeleteR")
     public String deleteR(Integer sno){
         String msg=dao.delete(sno);
         return msg;

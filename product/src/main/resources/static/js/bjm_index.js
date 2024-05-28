@@ -1,5 +1,5 @@
-let btnR = document.querySelector(".btnR");
-btnR.addEventListener("click", () => {
+
+function showRegisterForm(){
     $.ajax({
         url : "/bjmRegister",
         type : "GET",
@@ -9,7 +9,7 @@ btnR.addEventListener("click", () => {
             register();
         }
     })
-})
+}
 
 function register(){
     let bjmBtnRegisterR = document.querySelector(".bjmBtnRegisterR");
