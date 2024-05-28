@@ -1,0 +1,27 @@
+package com.myjob.product.Mybatis;
+
+import java.io.Reader;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+public class MyFactory {
+    public SqlSession session;
+
+    public MyFactory(){
+       try{
+        Reader reader = 
+            Resources.getResourceAsReader("com/myjob/product/Mybatis/config.xml");
+        SqlSessionFactory factory = 
+            new SqlSessionFactoryBuilder().build(reader);
+        session = factory.openSession();    
+       }catch(Exception ex){
+        ex.printStackTrace();
+       } 
+    }
+    public SqlSession getSession(){
+        return session;
+    }
+}
