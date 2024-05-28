@@ -1,4 +1,4 @@
-package com.myjob.product.csyMybatis;
+package com.myjob.product.mybatis;
 
 import java.io.Reader;
 
@@ -13,7 +13,7 @@ public class MyFactory {
     public MyFactory(){
        try{
         Reader reader = 
-            Resources.getResourceAsReader("com/myjob/product/csyMybatis/config.xml");
+            Resources.getResourceAsReader("com/myjob/product/mybatis/config.xml");
         SqlSessionFactory factory = 
             new SqlSessionFactoryBuilder().build(reader);
         session = factory.openSession();    
