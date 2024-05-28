@@ -20,6 +20,6 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="com/myjob/product/Mybatis/csyProduct.xml" />
+		<mapper resource="com/myjob/product/mybatis/csyProduct.xml" />
 	</mappers>
 </configuration>
