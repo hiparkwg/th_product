@@ -7,15 +7,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class KrhMemberController {
-    @Autowired //타입이 똑같은 놈과 연결해줭
+    @Autowired
     KrhMemberDao dao;
-
-    @RequestMapping(path = "/")
-    public ModelAndView index() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("index");
-        return mv;
-    }
 
     @RequestMapping(path="/krh_view")
     public ModelAndView view(Integer sno){

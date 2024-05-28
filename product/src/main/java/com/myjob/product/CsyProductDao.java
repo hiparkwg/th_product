@@ -3,7 +3,7 @@ package com.myjob.product;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Component;
 
-import com.myjob.product.csyMybatis.MyFactory;
+import com.myjob.product.mybatis.MyFactory;
 
 @Component
 public class CsyProductDao {
