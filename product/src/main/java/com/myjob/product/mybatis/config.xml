@@ -27,6 +27,7 @@
        	<mapper resource="com/myjob/product/mybatis/ojwproduct.xml" />
        	<mapper resource="com/myjob/product/mybatis/krhproduct.xml" />
        	<mapper resource="com/myjob/product/mybatis/bjmProduct.xml" />
+       	<mapper resource="com/myjob/product/mybatis/jwsproduct.xml" />
 
 	</mappers>
 </configuration>

@@ -3,7 +3,13 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="product">
+<mapper namespace="jws_product">
+
+   <insert id="register" paramerType="ProductVo">
+      insert into product(code, codeName, ea, price, amt)
+      values(#{code}, #{codeName}, #{ea}, #{price}, #{ea*price})
+   </insert>
+
    <select id="list" parameterType="Object" resultType="ProductVo">
       select * from product
       <where>

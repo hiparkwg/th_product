@@ -1,19 +1,18 @@
-let btnR = document.querySelector(".btnR");
-btnR.addEventListener("click", () => {
+function showProductRegisterForm(){
     $.ajax({
-        url : "/jwsregister",
-        type : "GET",
-        success : (resp) => {
-            let temp = $(resp).find(".jwsregister");
-            $(".left").html(temp);
-            register();
-        }
-    })
-})
+            url : "/jwsregister",
+            type : "GET",
+            success : (resp) => {
+                let temp = $(resp).find(".jwsregister");
+                $(".left").html(temp);
+                productRegisterR();
+            }
+        })
+}
 
-function register(){
+function productRegisterR(){
     let jwsBtnRegisterR = document.querySelector(".jwsBtnregisterR");
-    jwsBtnregisterRegisterR.addEventListener("click", () => {
+    jwsBtnRegisterR.addEventListener("click", () => {
         let temp = document.jwsFrmRegister;
         let frm = $(temp).serialize();
         $.ajax({

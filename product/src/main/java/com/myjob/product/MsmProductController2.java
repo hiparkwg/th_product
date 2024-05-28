@@ -31,23 +31,6 @@ public class MsmProductController2 {
         return mv;
     }
 
-    /*product ----------------------- */
-    @RequestMapping(path="/product/msm_product_form")
-    public ModelAndView productRegisterForm(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("product/msm_list2");
-        return mv;
-    }
-
-    @RequestMapping(path="/product/msm_list")
-    public ModelAndView producRegisterR(String findStr){
-        ModelAndView mv = new ModelAndView();
-        List<ProductVo> list = dao.product_search(findStr);
-        mv.addObject("list", list);
-        mv.setViewName("/product/msm_list2");
-        return mv;
-    }
-
-
+   
 
 }

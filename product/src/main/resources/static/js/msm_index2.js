@@ -75,6 +75,12 @@ function productSearch(){
     console.log("1")
     let btnSearch = document.querySelector(".btnSearch");
 
+    let btnRegister = document.querySelector(".register");
+    btnRegister.onclick = ()=>{
+        showProductRegisterForm();
+    }
+
+
     btnSearch.addEventListener('click', ()=>{ 
         let findStr = $(".findStr").val();
         console.log("2" , findStr)
