@@ -12,6 +12,7 @@ public class jwsDao {
     public boolean jwsregister(ProductVo vo) {
         session = new MyFactory().getSession();
         boolean b = false;
+        vo.setAmt(vo.getEa() * vo.getPrice());
         int cnt = session.insert("jws_product.register", vo);
         if(cnt > 0){
             b=true;

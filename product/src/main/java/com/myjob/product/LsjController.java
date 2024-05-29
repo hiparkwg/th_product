@@ -53,7 +53,7 @@ public class LsjController {
         CodeVo vo = null;
         vo = dao.update(code);
         mv.addObject("vo", vo);
-        mv.setViewName("code/update");
+        mv.setViewName("code/lsj_update");
         return mv;
     }
     @RequestMapping(path="/updateR")

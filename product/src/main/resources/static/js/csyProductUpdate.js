@@ -1,9 +1,25 @@
-let csyBtnModify = document.querySelector(".csyBtnModify");
+let productUpdateForm=(sno)=>{
+    $.ajax({
+        url      : "/csyProductForm",
+        type     : "GET",
+        data     :{"sno" : sno},
+        success : (resp)=>{
+            let temp = $(resp).find(".codeUpdateForm");
+            $(".left").html(temp);
 
-csyBtnModify.onclick = () => {
+            let btn = document.querySelector('.csyBtnModifyR');
+            btn.onclick=()=>{
+                productUpdate();
+            }
+
+        }
+    })
+}
+
+
+let productUpdate = () => {
     let frm = document.csyFrmProductModify;
     let frmData = $(frm).serialize();
-    alert(frmData);
     $.ajax({
         url : "/csyProductUpdate",
         type: "POST",

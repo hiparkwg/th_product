@@ -19,13 +19,17 @@
                             <th>코드</th>
                             <th>코드명</th>
                             <th>금액</th>
+                            <th>수량</th>
+                            <th>단가</th>
                         </tr>
                         <tr th:each="p : ${list}" th:onClick="krhView([[${p.sno}]])">
                             <td>[[${p.nal}]]</td>
                             <td>[[${p.code}]]</td>
                             <td>[[${p.codeName}]]</td>
                             <td>[[${p.amt}]]</td>
-                            <td></td>
+                            <td>[[${p.ea}]]</td>
+                            <td>[[${p.price}]]</td>
+                            
                         </tr>
                     </table>
                 </div>

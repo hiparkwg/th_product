@@ -6,25 +6,27 @@
     <title>update</title>
 </head>
 <body>
-    <div>
 
-   
-    <div class="update">
-        <h2>제품 코드 수정</h2>
-        <form name="frmDisplay" method="post" >
-           
-            <label>코드<input type="text" name="code" readonly  th:value="${vo.code}"> </label><br/>
+    
+    <div>
+        <div class="update">
+            <h2>제품 코드 수정</h2>
+            <form name="frmDisplay" method="post" >
             
-            <label>코드명<input type="text" name="codeName" th:value="${vo.codeName}"> </label><br/>
-            
-            <div class="btnZone">
+                <label>코드<input type="text" name="code" readonly  th:value="${vo.code}"> </label><br/>
                 
-                <button type="button" class="btnUpdateR">수정</button>
+                <label>코드명<input type="text" name="codeName" th:value="${vo.codeName}"> </label><br/>
                 
-                
-            </div>
-        </form>
+                <div class="btnZone">
+                    
+                    <button type="button" class="btnUpdateR">수정</button>
+                    
+                    
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+
+
 </body>
 </html>

@@ -4,16 +4,18 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="productcode">
-<insert id="register" parameterType="CodeVo">
-insert into code(code,codeName) values(#{code},#{codeName});
-</insert>
-<select id="select" parameterType="String" resultType="CodeVo">
-select * from code where code like '%${_parameter}' or codeName like '%${_parameter}'
-</select>
-<select id="selectone" parameterType="String" resultType="CodeVo">
-select * from code where code=#{code}
-</select>
-<update id="update" parameterType="CodeVo">
-update code set code=#{code},codeName=#{codeName} where code=#{code}
-</update>
+    <insert id="register" parameterType="CodeVo">
+        insert into code(code,codeName) values(#{code},#{codeName});
+    </insert>
+    <select id="select" parameterType="String" resultType="CodeVo">
+        select * from code where code like '%${_parameter}' or codeName like '%${_parameter}'
+    </select>
+    
+    <select id="selectone" parameterType="String" resultType="CodeVo">
+        select * from code where code=#{_parameter}
+    </select>
+
+    <update id="update" parameterType="CodeVo">
+        update code set code=#{code},codeName=#{codeName} where code=#{code}
+    </update>
 </mapper>

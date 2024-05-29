@@ -1,3 +1,4 @@
+/*
 let findStr = document.querySelector(".findStr");
 let btnManage = document.querySelector(".btnManage");
 btnManage.onclick=()=>{
@@ -87,10 +88,37 @@ let load=()=>{
         }
     })
 }
+*/
 
 
-
-
+function codeUpdateForm(code){
+    $.ajax({
+        url     : "/update",
+        type    : "GET",
+        data    : {"code" : code},
+        success : (resp)=>{
+            let temp = $(resp).find(".update");
+            $('.left').html(temp);
+            let btn = document.querySelector('.btnUpdateR');
+            btn.onclick = codeUpdateR;
+        }
+    })
+}
+function codeUpdateR(){
+    let yn = confirm("정말 수정하려고???");
+    if( !yn ) return;
+    
+    let temp = document.frmDisplay;
+    let frm = $(temp).serialize();
+    $.ajax({
+        url     : "/updateR",
+        type    : "POST",
+        data    : frm,
+        success : (resp)=>{
+            alert(resp)
+        }
+    })
+}
 
 
 

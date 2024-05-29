@@ -5,9 +5,9 @@
 
 <mapper namespace="jws_product">
 
-   <insert id="register" paramerType="ProductVo">
+   <insert id="register" parameterType="ProductVo">
       insert into product(code, codeName, ea, price, amt)
-      values(#{code}, #{codeName}, #{ea}, #{price}, #{ea*price})
+      values(#{code}, #{codeName}, #{ea}, #{price}, #{amt})
    </insert>
 
    <select id="list" parameterType="Object" resultType="ProductVo">

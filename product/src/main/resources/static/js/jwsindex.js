@@ -13,7 +13,8 @@ function showProductRegisterForm(){
 function productRegisterR(){
     let jwsBtnRegisterR = document.querySelector(".jwsBtnregisterR");
     jwsBtnRegisterR.addEventListener("click", () => {
-        let temp = document.jwsFrmRegister;
+        let temp = document.jwsFrmregister;
+
         let frm = $(temp).serialize();
         $.ajax({
             url : "/jwsregisterR",

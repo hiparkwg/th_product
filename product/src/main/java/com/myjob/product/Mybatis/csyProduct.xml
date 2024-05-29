@@ -4,6 +4,11 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="csyProduct">
+
+    <select id="select" parameterType="Integer" resultType="ProductVo">
+        select * from product where sno = #{_parameter}
+    </select>
+
     <update id="update" parameterType="ProductVo">
         update product set code=#{code}, nal=#{nal}, ea=#{ea}, price=#{price}, amt=#{amt} where sno=#{sno}
     </update>

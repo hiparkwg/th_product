@@ -14,7 +14,11 @@ let krhView = (sno)=> {
 
 function krhViewEvent(sno){
     let btnDelete = document.querySelector(".btnDelete");
-
+    let btnModify = document.querySelector(".csyBtnModify");
+    btnModify.onclick = ()=>{
+        productUpdateForm(sno);
+    }
+    
     btnDelete.addEventListener('click',()=>{
         let yn=confirm('정말 삭제하시겠습니까?');
         if(!yn) return;
@@ -24,10 +28,9 @@ function krhViewEvent(sno){
             type:"GET",
             data:{"sno":sno},
             success:(resp)=>{
-                list("")
-                    setTimeout(()=>{
-                        alert(resp)
-                    },200);
+                setTimeout(()=>{
+                    alert(resp)
+                },200);
             }
         })
     })
