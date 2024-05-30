@@ -4,17 +4,25 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="code">
-    <select id="search" parameterType="String" resultType="CodeVo">
+    <select id="search" parameterType="Page" resultType="CodeVo">
         select * from code
-         where code like '%${_parameter}%'
-        or codeName like '%${_parameter}%'
+        where code     like '%${findStr}%'
+        or    codeName like '%${findStr}%'
+        order by code asc
+        limit #{startNo} , #{listSize}
+    </select>
+    <select id="tot_size" parameterType="String" resultType="Integer">
+        select count(code) from code 
+        where code     like '%${findStr}%'
+        or    codeName like '%${findStr}%'
     </select>
 
-   <select id="list" parameterType="String" resultType="CodeVo">
+   <select id="list" parameterType="Page" resultType="CodeVo">
       select * from code
-      where id=#{_parameter}
-      or code like '%{_parameter}%'
-      or codeName like '%{_parameter}%'
+      where code     like '%${findStr}%'
+      or    codeName like '%${findStr}%'
+      order by code asc
+      limit #{startNo} , #{listSize}
    </select>
    
 </mapper>

@@ -1,6 +1,8 @@
 package com.myjob.product;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,9 +15,14 @@ public class MsmProductController2 {
 
     /*code ----------------------- */
     @RequestMapping(path="/code/msm_list")
-    public ModelAndView codeList(String findStr){
+    public ModelAndView codeList(String findStr, int nowPage){
+ 
         ModelAndView mv = new ModelAndView();
-        List<CodeVo> list = dao.code_search(findStr);
+        Map<String, Object> map = dao.code_search(findStr, nowPage);
+        List<CodeVo> list = (List<CodeVo>)map.get("list");
+        Page page = (Page)map.get("page");
+
+        mv.addObject("page", page);
         mv.addObject("list", list);
         System.out.println("findStr : " + findStr);
         mv.setViewName("code/msm_list2");

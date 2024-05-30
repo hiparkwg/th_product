@@ -1,6 +1,9 @@
 package com.myjob.product;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Component;
 import com.myjob.product.mybatis.MyFactory;
@@ -12,11 +15,26 @@ public class MsmProductDao2 {
         session = new MyFactory().getSession();
     }
     
-    public List<CodeVo> code_search(String findStr){
+    public Map<String, Object> code_search(String findStr, int nowPage){
+        Map<String, Object> map = new HashMap<>();
+
         session = new MyFactory().getSession();
-        List<CodeVo> list = session.selectList("code.search", findStr);
+        int totSize = session.selectOne("code.tot_size", findStr);
+
+        Page page = new Page();
+        page.setFindStr(findStr);
+        page.setNowPage(nowPage);
+        page.setTotSize(totSize);
+        page.compute();
+        
+        List<CodeVo> list = session.selectList("code.search", page);
         session.close();
-        return list;
+        map.put("list", list);
+        map.put("page", page);
+
+        System.out.println("list.size:" + list.size());
+        System.out.println("page : " + page);
+        return map;
     }
 
     public List<ProductVo> product_search(String findStr){
