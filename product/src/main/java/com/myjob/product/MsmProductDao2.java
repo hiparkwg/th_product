@@ -32,16 +32,26 @@ public class MsmProductDao2 {
         map.put("list", list);
         map.put("page", page);
 
-        System.out.println("list.size:" + list.size());
-        System.out.println("page : " + page);
         return map;
     }
 
-    public List<ProductVo> product_search(String findStr){
+    public Map<String, Object> product_search(String findStr, int nowPage){
+        Map<String, Object> map = new HashMap<>();
+
         session = new MyFactory().getSession();
-        List<ProductVo> list = session.selectList("product.search", findStr);
+        int totSize = session.selectOne("product.tot_size", findStr);
+        Page page = new Page();
+        page.setFindStr(findStr);
+        page.setNowPage(nowPage);
+        page.setTotSize(totSize);
+        page.compute(); // nowpage를 사용하여 startNo, endNo 연산
+
+        List<ProductVo> list = session.selectList("product.search", page);
+        map.put("list", list);
+        map.put("page", page);
+
         session.close();
-        return list;
+        return map;
     }
 
 }

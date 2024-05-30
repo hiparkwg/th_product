@@ -25,12 +25,20 @@
                             <td>[[${c.codeName}]]</td>
                         </tr>
                         <tr>
+                            <td colspan="3">
+                                <th:block th:if="${page.nowPage>1}">
+                                    <button type="button" class="btnPrev">이전</button>
+                                </th:block>
+
+                                <th:block th:if="${page.totSize>page.endNo}">
+                                    <button type="button" class="btnNext">다음</button>
+                                </th:block>
+
+                            </td>
                         </tr>
                     </table>
                 </div>
                 
-                <button type="button" class="btnPrev">이전</button>
-                <button type="button" class="btnNext">다음</button>
             </div>
         </div>
     </div>

@@ -21,6 +21,7 @@ function codeList(){
             let temp = $(resp).find(".msm_container");
             $('.right').html(temp);
             search();
+            loadItem(findStr, nowPage);
         }   
     });
 }
@@ -32,30 +33,6 @@ function search(){
     btnRegister.onclick = ()=>{
         showRegisterForm();
     }
-
-    $(".btnPrev").on("click", ()=>{
-        console.log("prev...")
-        let nowPage=1;
-        let findStr = $(".findStr").val();
-        if(sessionStorage.getItem("codeNowPage") != null){
-            nowPage = sessionStorage.getItem("codeNowPage");
-            if(nowPage>1) nowPage--;
-        }
-        loadItem(findStr, nowPage);
-
-    })
-    $(".btnNext").on("click", ()=>{
-        console.log("nect...")
-        let nowPage=1;
-        let findStr = $(".findStr").val();
-        if(sessionStorage.getItem("codeNowPage") != null){
-            nowPage = sessionStorage.getItem("codeNowPage");
-            nowPage++;
-        }
-        loadItem(findStr, nowPage);
-    })
-
-
 
     btnSearch.addEventListener('click', ()=>{ 
         let findStr = $(".findStr").val();
@@ -75,6 +52,29 @@ function loadItem(findStr, nowPage){
             let temp = $(resp).find(".item");
             $(".items").html(temp);
             sessionStorage.setItem("codeNowPage", nowPage);
+
+            $(".btnPrev").on("click", ()=>{
+                console.log("prev...")
+                let nowPage=1;
+                let findStr = $(".findStr").val();
+                if(sessionStorage.getItem("codeNowPage") != null){
+                    nowPage = sessionStorage.getItem("codeNowPage");
+                    if(nowPage>1) nowPage--;
+                }
+                loadItem(findStr, nowPage);
+        
+            })
+            $(".btnNext").on("click", ()=>{
+                console.log("nect...")
+                let nowPage=1;
+                let findStr = $(".findStr").val();
+                if(sessionStorage.getItem("codeNowPage") != null){
+                    nowPage = sessionStorage.getItem("codeNowPage");
+                    nowPage++;
+                }
+                loadItem(findStr, nowPage);
+            })
+        
         }
     })
 }
@@ -84,23 +84,24 @@ function loadItem(findStr, nowPage){
 
 
 /* product ------------------------------- */
-
+//index.html에서 '판매관리' 메뉴가 클릭되면
 function productList(){
     let findStr="";
+    let nowPage=1;
     $.ajax({                         
         url : "/product/msm_list",               
         type : "GET",
-        data : {'findStr' : findStr},
+        data : {'findStr' : findStr, 'nowPage' : nowPage},
         success : (resp)=>{           
             let temp = $(resp).find(".msm_container");
             $('.right').html(temp);
             productSearch();
+            productLoadItem(findStr, nowPage);   
         }   
     });
 }
 
 function productSearch(){
-    console.log("1")
     let btnSearch = document.querySelector(".btnSearch");
 
     let btnRegister = document.querySelector(".register");
@@ -108,21 +109,37 @@ function productSearch(){
         showProductRegisterForm();
     }
 
-
     btnSearch.addEventListener('click', ()=>{ 
         let findStr = $(".findStr").val();
-        console.log("2" , findStr)
-        sessionStorage.setItem("findStr", findStr);  
+        let nowPage = 1;
 
-        $.ajax({
-            url : "/product/msm_list", 
-            type : "GET",
-            data : {"findStr" : findStr},
-            success : (resp)=>{
-                let temp = $(resp).find(".item");
-                $(".items").html(temp);
-            }
+        sessionStorage.setItem("productNowPage", nowPage);
+        productLoadItem(findStr, nowPage);        
+    })
+}
+
+function productLoadItem(findStr, nowPage){
+    $.ajax({
+        url : "/product/msm_list", 
+        type : "GET",
+        data : {"findStr" : findStr, "nowPage" : nowPage},
+        success : (resp)=>{
+            sessionStorage.setItem("productNowPage", nowPage);
+            let temp = $(resp).find(".item");
+            $(".items").html(temp);
+
+            $(".btnProductPrevEnable").on("click", ()=>{
+                nowPage = sessionStorage.getItem("productNowPage");
+                nowPage--;
+                productLoadItem(findStr, nowPage);
+            })
+
+            $(".btnProductNextEnable").on("click", ()=>{
+                nowPage = sessionStorage.getItem("productNowPage");
+                nowPage++;
+                productLoadItem(findStr, nowPage);
+            })
+
         }
-    )}
-)}
-
+    })
+}

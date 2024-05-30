@@ -30,10 +30,12 @@ public class MsmProductController2 {
     }
 
     @RequestMapping(path="/product/msm_list")
-    public ModelAndView productList(String findStr){
+    public ModelAndView productList(String findStr, int nowPage){
         ModelAndView mv = new ModelAndView();
-        List<ProductVo> list = dao.product_search(findStr);
-        mv.addObject("list", list);
+        Map<String, Object> map = dao.product_search(findStr, nowPage);
+
+        mv.addObject("list", map.get("list"));
+        mv.addObject("page", map.get("page"));
         mv.setViewName("/product/msm_list2");
         return mv;
     }

@@ -53,6 +53,18 @@
     padding:20px;
 }
 
+#product .btnProductPrev , #product .btnProductNext{
+    pointer-events: none;
+    background-color: #bbb;
+    border:0;    
+}
+
+#product .btnProductPrevEnable , #product .btnProductNextEnable{
+    pointer-events: all;
+    background-color: "";
+    border:0; 
+    cursor: pointer;   
+}
 
 
 

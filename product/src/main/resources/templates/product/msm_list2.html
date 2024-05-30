@@ -31,8 +31,22 @@
                             <td>[[${p.price}]]</td>
                             
                         </tr>
+                        <tr>
+                            <td colspan="6">
+                                <button type="button" 
+                                    th:class="${ ( page.nowPage gt 1 )? 'btnProductPrevEnable' : 'btnProductPrev' }" >이전</button>
+
+                                <button type="button"
+                                    th:class="${ ( page.totSize gt page.endNo  )? 'btnProductNextEnable' : 'btnProductNext' }">다음</button>
+
+                            </td>
+                        </tr>
                     </table>
                 </div>
+
+
+
+
             </div>
         </div>
     </div>
